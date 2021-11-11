@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ride_test/front_page.dart';
 import 'package:get/get.dart';
+import 'package:ride_test/translation/translate.dart';
 void main() {
   runApp(MyApp());
 }
@@ -25,6 +26,16 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: FrontPage(),
+      localizationsDelegates: const [
+        TranslationDelegate(),
+        // GlobalMaterialLocalizations.delegate,
+        // GlobalWidgetsLocalizations.delegate,
+        // GlobalCupertinoLocalizations.delegate
+      ],
+      supportedLocales: const [
+        Locale('en', ''),
+        Locale('am', ''),
+      ],
     );
   }
 }

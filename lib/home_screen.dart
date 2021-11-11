@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:ride_test/drawer.dart';
+import 'package:ride_test/map_screen.dart';
+import 'package:ride_test/translation/translate.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -13,80 +16,347 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  String _chosenValue = 'English';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: Drawer(
+      child: ListView(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height * 0.2,
+                width: MediaQuery.of(context).size.width,
+            color:Colors.green[400],
+            child: Padding(
+              padding: const EdgeInsets.only(top:40),
+              child: Center(
+                
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      child: Image(image: AssetImage('assets/images/ethiopia.png')),
+                    ),
+                    Text(
+                      'Meseret Kifle'
+                    )
+                  ],
+                ),
+              ),
+            )
+          ),
+          Divider(
+            indent: 15,
+            endIndent: 15,
+          ),
+          Padding(
+              padding: EdgeInsets.only(
+                top: 10,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      
+                    },
+                    child: ListTile(
+                      leading: Icon(
+                        FontAwesomeIcons.dollarSign,
+                        color: Colors.green[400],
+                      ),
+                      title: Text(
+                        "Ebir",
+                        // Translation.of(context).trans('home'),
+                        style: TextStyle(
+                          color: Colors.green[400],
+                        ),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      
+                    },
+                    child: ListTile(
+                      leading: Icon(
+                        FontAwesomeIcons.doorClosed,
+                        color: Colors.green[400],
+                      ),
+                      title: Text(
+                        'Pre-orders',
+                        // Translation.of(context).trans('income'),
+                        style: TextStyle(
+                          color: Colors.green[400],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      
+                    },
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.history,
+                        color: Colors.green[400],
+                      ),
+                      title: Text(
+                        'History',
+                        // Translation.of(context).trans('expense'),
+                        style: TextStyle(
+                          color: Colors.green[400],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  
+                  SizedBox(
+                    height: 5,
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      
+                    },
+                    child: ListTile(
+                      leading: Icon(
+                        FontAwesomeIcons.link,
+                        color: Colors.green[400],
+                      ),
+                      title: Text(
+                        'Referral',
+                        // Translation.of(context).trans('stock'),
+                        style: TextStyle(
+                          color: Colors.green[400],
+                        ),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      
+                    },
+                    child: ListTile(
+                      leading: Icon(
+                        FontAwesomeIcons.moneyBill,
+                        color: Colors.green[400],
+                      ),
+                      title: Text(
+                        'Feres Miles',
+                        // Translation.of(context).trans('stock'),
+                        style: TextStyle(
+                          color: Colors.green[400],
+                        ),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      
+                    },
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.contact_support,
+                        color: Colors.green[400],
+                      ),
+                      title: Text(
+                        'Contact Us',
+                        // Translation.of(context).trans('stock'),
+                        style: TextStyle(
+                          color: Colors.green[400],
+                        ),
+                      ),
+                    ),
+                  ),
+                  
+                  
+                ],
+              )),
+        
+        ],
+      ),
+    ),
+  
       body: Container(
         color: Colors.white,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        child: Column(
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height*0.3,
-              child: Stack(
-                children: [
-                  MapSample(),
-                ],
-              ),
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height*0.3,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.car_repair)
-                    ],
-                  )
-                ],
-              )
-            )
-          ],
-        ),
-      ),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        leading: IconButton(
-          icon: Icon(Icons.account_circle_rounded,color: Colors.green[400],),
-          onPressed: () => Scaffold.of(context).openDrawer(),
-        ),
-        actions: [
-          Container(
-            margin: EdgeInsets.only(top: 5),
-            width: 100,
-            height: 30,
-            decoration: BoxDecoration(
-              color: Colors.green[400],
-              borderRadius: BorderRadius.only(topRight: Radius.circular(50),bottomLeft:Radius.circular(50) )
-            ),
-            child: Center(child: 
-            Text('+5 Bonus',
-            style:TextStyle(
-              color: Colors.white
-            )
-            ),),
-          )
-        ],
-      ),
-      drawer: Drawer(
-        elevation: 2,
-        child: Container(
-          child:Column(
-            children:[
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              
               Container(
-                child:Column(
-                  children:[
-                    
-                  ]
-                )
-              )
-            ]
-          )
-        )
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.5,
+                child: Stack(
+                  children: [
+                    MapSample(),
+                    // MapScreen(),
+                    Positioned(
+                      left: 5,
+                      top: 30,
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.account_circle_rounded,
+                          color: Colors.green[400],
+                        ),
+                        onPressed: () => _scaffoldKey.currentState!.openDrawer()
+                      ),
+                    ),
+                    Positioned(
+                      right:5,
+                      top:30,
+                        child: Container(
+                      margin: EdgeInsets.only(top: 5),
+                      width: 100,
+                      height: 30,
+                      decoration: BoxDecoration(
+                          color: Colors.green[400],
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(50),
+                              bottomLeft: Radius.circular(50))),
+                      child: Center(
+                        child: Text('+5 Bonus',
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                    ))
+                  ],
+                ),
+              ),
+              Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.45,
+                  child: Column(
+                    children: [
+                      SizedBox(height:10),
+                      Container(
+                        width:MediaQuery.of(context).size.width,
+                        height: 100,
+                        color: Colors.grey[200],
+                        margin: EdgeInsets.only(left:10),
+                        child: Row(
+                          children:[
+                            Icon(Icons.directions_boat,color:Colors.green[400]),
+                            SizedBox(width: 20,),
+                            Text(
+                              'Where to?',
+                              style: TextStyle(
+                                color: Colors.green[400],
+                                fontWeight: FontWeight.bold,
+                                fontSize: 30
+                              ),
+                            )
+                          ]
+                        ),
+                      ),
+                      SizedBox(height:10),
+                      Container(
+                        margin:EdgeInsets.only(left:10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(Icons.room),
+                            SizedBox(width: 10,),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'A2',
+                                  style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25                              ),
+                                ),
+                                Text(
+                                  'Addis Ababa',
+                                  style: TextStyle(
+                                  color: Colors.black45,
+                                  fontSize: 20
+                                ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(height:10),
+                      Container(
+                        margin:EdgeInsets.only(left:10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(Icons.room),
+                            SizedBox(width: 10,),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'A2',
+                                  style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25                              ),
+                                ),
+                                Text(
+                                  'Addis Ababa',
+                                  style: TextStyle(
+                                  color: Colors.black45,
+                                  fontSize: 20
+                                ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(height:10),
+                      Container(
+                        margin:EdgeInsets.only(left:10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(Icons.room),
+                            SizedBox(width: 10,),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'A2',
+                                  style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25                              ),
+                                ),
+                                Text(
+                                  'Addis Ababa',
+                                  style: TextStyle(
+                                  color: Colors.black45,
+                                  fontSize: 20
+                                ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ))
+            ],
+          ),
+        ),
       ),
+      
+      
     );
   }
 }
@@ -119,11 +389,6 @@ class MapSampleState extends State<MapSample> {
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: _goToTheLake,
-        label: Text('To the lake!'),
-        icon: Icon(Icons.directions_boat),
       ),
     );
   }
