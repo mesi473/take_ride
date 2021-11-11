@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1020708355357",
+    "firebase_url": "https://personal-web-2e0a5-default-rtdb.firebaseio.com",
+    "project_id": "personal-web-2e0a5",
+    "storage_bucket": "personal-web-2e0a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020708355357:android:cfb5f8ee32c996a71175f4",
+        "android_client_info": {
+          "package_name": "com.example.ride_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1020708355357-o70qj0i8bqhi4k7bff6uo6l85fgirh9l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXG30HNWYoA2G6zC8qYmnypdwCwYO5nSY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1020708355357-o70qj0i8bqhi4k7bff6uo6l85fgirh9l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
