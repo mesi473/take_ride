@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:ride_test/home_screen.dart';
+import 'package:ride_test/auth_code_screen.dart';
 import 'package:ride_test/login_with_social_media.dart';
 import 'package:get/get.dart';
 
@@ -136,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             FloatingActionButton(onPressed: (){
-              Get.to(HomeScreen());
+              Get.to(AuthCode());
             },
             backgroundColor: Colors.green[400],
             child: Icon(Icons.arrow_forward_ios),

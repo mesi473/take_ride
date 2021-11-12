@@ -2,7 +2,15 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:ride_test/Ferse_miles_screen.dart';
+import 'package:ride_test/Referral_screen.dart';
+import 'package:ride_test/contact_us_screen.dart';
+import 'package:ride_test/ebirr_screen.dart';
+import 'package:ride_test/history_screen.dart';
+import 'package:ride_test/pre_order_screen.dart';
+import 'package:ride_test/referal.dart';
 // import 'package:ride_test/drawer.dart';
 // import 'package:ride_test/map_screen.dart';
 // import 'package:ride_test/translation/translate.dart';
@@ -62,6 +70,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       
                     },
                     child: ListTile(
+                      onTap: (){
+                        Get.to(EBirrScreen());
+                      },
                       leading: Icon(
                         FontAwesomeIcons.dollarSign,
                         color: Colors.green[400],
@@ -77,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      
+                      Get.to(PreOrderScreen());
                     },
                     child: ListTile(
                       leading: Icon(
@@ -98,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      
+                      Get.to(HistoryScreen());
                     },
                     child: ListTile(
                       leading: Icon(
@@ -126,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      
+                      Get.to(ReferralScreen());
                     },
                     child: ListTile(
                       leading: Icon(
@@ -144,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      
+                      Get.to(FeresMileScreen());
                     },
                     child: ListTile(
                       leading: Icon(
@@ -162,7 +173,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      
+                      Get.to(ContactUsScreen());
                     },
                     child: ListTile(
                       leading: Icon(
@@ -204,10 +215,22 @@ class _HomeScreenState extends State<HomeScreen> {
                     // MapScreen(),
                     Positioned(
                       left: 5,
-                      top: 30,
+                      top: 35,
                       child: IconButton(
                         icon: Icon(
                           Icons.account_circle_rounded,
+                          color: Colors.green[400],
+                          size: 50,
+                        ),
+                        onPressed: () => _scaffoldKey.currentState!.openDrawer()
+                      ),
+                    ),
+                    Positioned(
+                      right: 5,
+                      top: 100,
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.phone,
                           color: Colors.green[400],
                         ),
                         onPressed: () => _scaffoldKey.currentState!.openDrawer()
@@ -215,7 +238,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Positioned(
                       right:5,
-                      top:30,
+                      top:35,
                         child: Container(
                       margin: EdgeInsets.only(top: 5),
                       width: 100,
@@ -243,7 +266,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         width:MediaQuery.of(context).size.width,
                         height: 100,
                         color: Colors.grey[200],
-                        margin: EdgeInsets.only(left:10),
                         child: Row(
                           children:[
                             Icon(Icons.directions_boat,color:Colors.green[400]),
