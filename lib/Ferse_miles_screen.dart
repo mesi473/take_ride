@@ -39,8 +39,8 @@ class _FeresMileScreenState extends State<FeresMileScreen> {
                 height: 20,
               ),
               Container(
-                width: MediaQuery.of(context).size.width * 0.8,
-                height: 120,
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: 140,
                 child: Card(
                   color: Colors.white,
                   elevation: 10,
@@ -51,7 +51,7 @@ class _FeresMileScreenState extends State<FeresMileScreen> {
                         Row(
                           children: [
                             Text('Balance'),
-                            SizedBox(width: 40),
+                            SizedBox(width: 120),
                             Text('Pending miles'),
                             Text(''),
                           ],
@@ -70,9 +70,15 @@ class _FeresMileScreenState extends State<FeresMileScreen> {
                                   '50',
                                   style: TextStyle(),
                                 ),
-                                Text(
-                                  '(to active your miles takes 3 trips)',
-                                  style: TextStyle(color: Colors.redAccent),
+                                Container(
+                                  height: 40,
+                                  width: 130,
+                                  child: Expanded(
+                                    child: Text(
+                                      '(to active your miles takes 3 trips)',
+                                      style: TextStyle(color: Colors.redAccent),
+                                    ),
+                                  ),
                                 ),
                               ],
                             )
@@ -92,7 +98,7 @@ class _FeresMileScreenState extends State<FeresMileScreen> {
                   child: ListView(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 55),
+                        padding: const EdgeInsets.only(left: 40),
                         child: Row(
                           children: [
                             Container(
@@ -152,7 +158,7 @@ class _FeresMileScreenState extends State<FeresMileScreen> {
                         height: 40,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 55),
+                        padding: const EdgeInsets.only(left: 40),
                         child: Row(
                           children: [
                             Container(
@@ -212,7 +218,7 @@ class _FeresMileScreenState extends State<FeresMileScreen> {
                         height: 40,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 55),
+                        padding: const EdgeInsets.only(left: 40),
                         child: Row(
                           children: [
                             Container(

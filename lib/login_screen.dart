@@ -30,6 +30,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController _phoneController=TextEditingController();
+    String _countryCodeController='';
+    
     return Scaffold(
       body: Container(
         child: Column(
@@ -94,10 +97,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   Row(
                     children: [
                       CountryCodePicker(
-                        onChanged: print,
+                        
+                        onChanged: (country){
+                          setState((){
+                            _countryCodeController=country.dialCode!;
+                          });
+                        },
                         // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
-                        initialSelection: 'IT',
-                        favorite: ['+39', 'FR'],
+                        initialSelection: 'ET',
+                        favorite: ['+251', 'ET'],
                         // optional. Shows only country name and flag
                         showCountryOnly: false,
                         // optional. Shows only country name and flag when popup is closed.
@@ -108,6 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Container(
                         width: MediaQuery.of(context).size.width*0.5,
                         child: TextField(
+                          controller: _phoneController,
                           decoration: InputDecoration(
                               border: InputBorder.none,
                               labelText: 'Phone Number',
@@ -135,8 +144,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
             ),
-            FloatingActionButton(onPressed: (){
-              Get.to(AuthCode());
+            FloatingActionButton(
+              onPressed: (){
+              Get.to(AuthCode(
+                phone:_phoneController.text,
+                code :_countryCodeController
+              ));
             },
             backgroundColor: Colors.green[400],
             child: Icon(Icons.arrow_forward_ios),
@@ -147,3 +160,4 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
